@@ -24,6 +24,29 @@ map.on('load', function() {
     });
 });
 
+map.on('click', '2010 Data', funtion (e) {
+    var coordinates = e.features[0].geometry.coordinates.slice();
+    var description = e.features[0].properties.description;
+
+    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+    }
+
+    new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML('hello')
+        .addTo(map);
+});
+
+map.on('mouseenter', '2010 Data', function () {
+    map.getCanvas().style.cursor = 'pointer';
+});
+
+// Change it back to a pointer when it leaves.
+map.on('mouseleave', '2010 Data', function () {
+    map.getCanvas().style.cursor = '';
+});
+
 var toggleableLayerIds = [ '2010 Data', ];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
