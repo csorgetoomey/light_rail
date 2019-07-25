@@ -18,33 +18,42 @@ map.on('load', function() {
         'data': 'GEOJSONS/tac_2010_data.geojson'
     });
     map.addLayer({
-        "id":"2010 Data",
+        "id":"2010Data",
         "type":"fill",
         "source":"2010"
     });
 });
 
-map.on('click', '2010 Data', function (e) {
+// Create a popup, but don't add it to the map yet.
+var popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false
+});
+
+map.on('mouseenter', '2010Data', function(e) {
+    // Change the cursor style as a UI indicator.
+    map.getCanvas().style.cursor = 'pointer';
+
     var coordinates = e.features[0].geometry.coordinates.slice();
     var description = e.features[0].properties.description;
 
+    // Ensure that if the map is zoomed out such that multiple
+    // copies of the feature are visible, the popup appears
+    // over the copy being pointed to.
     while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
         coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
     }
 
-    new mapboxgl.Popup()
-        .setLngLat(coordinates)
+    // Populate the popup and set its coordinates
+    // based on the feature found.
+    popup.setLngLat(coordinates)
         .setHTML('hello')
         .addTo(map);
 });
 
-map.on('mouseenter', '2010 Data', function () {
-    map.getCanvas().style.cursor = 'pointer';
-});
-
-// Change it back to a pointer when it leaves.
-map.on('mouseleave', '2010 Data', function () {
+map.on('mouseleave', 'places', function() {
     map.getCanvas().style.cursor = '';
+    popup.remove();
 });
 
 var toggleableLayerIds = [ '2010 Data', ];
