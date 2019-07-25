@@ -11,7 +11,7 @@ var map = new mapboxgl.Map({
 
 map.addControl(new mapboxgl.NavigationControl());
 
-load geojsons
+//load geojsons
 map.on('load', function() {
     map.addSource('2010', {
         'type': 'geojson',
