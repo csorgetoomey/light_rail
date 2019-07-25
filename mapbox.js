@@ -24,7 +24,7 @@ map.on('load', function() {
     });
 });
 
-map.on('click', '2010 Data', funtion (e) {
+map.on('click', '2010 Data', function (e) {
     var coordinates = e.features[0].geometry.coordinates.slice();
     var description = e.features[0].properties.description;
 
