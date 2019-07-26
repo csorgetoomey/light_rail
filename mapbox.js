@@ -51,7 +51,7 @@ map.on('mouseenter', '2010Data', function(e) {
         .addTo(map);
 });
 
-map.on('mouseleave', 'places', function() {
+map.on('mouseleave', '2010Data', function() {
     map.getCanvas().style.cursor = '';
     popup.remove();
 });
