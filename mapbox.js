@@ -20,7 +20,7 @@ map.on('load', function() {
     map.addLayer({
         "id":"2010Data",
         "type":"fill",
-        "source":"2010"
+        "source":"2010",
         "paint": {
             'fill-color': 'rgba(200, 100, 240, 0.4)',
             'fill-outline-color': 'rgba(200, 100, 240, 1)'
