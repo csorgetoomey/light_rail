@@ -21,6 +21,10 @@ map.on('load', function() {
         "id":"2010Data",
         "type":"fill",
         "source":"2010"
+        "paint": {
+            'fill-color': 'rgba(200, 100, 240, 0.4)',
+            'fill-outline-color': 'rgba(200, 100, 240, 1)'
+        }
     });
 });
 
@@ -29,11 +33,6 @@ map.on('click', '2010Data', function (e) {
         .setLngLat(e.lngLat)
         .setHTML("hello")
         .addTo(map);
-});
-
-map.on('mouseleave', '2010Data', function() {
-    map.getCanvas().style.cursor = '';
-    popup.remove();
 });
 
 var toggleableLayerIds = [ '2010 Data', ];
