@@ -35,6 +35,7 @@ map.on('mouseenter', '2010Data', function(e) {
     map.getCanvas().style.cursor = 'pointer';
 
     var coordinates = e.features[0].geometry.coordinates.slice();
+    console.log(coordinates)
     var description = e.features[0].properties.description;
 
     // Ensure that if the map is zoomed out such that multiple
@@ -46,7 +47,7 @@ map.on('mouseenter', '2010Data', function(e) {
 
     // Populate the popup and set its coordinates
     // based on the feature found.
-    popup.setLngLat(coordinates)
+    popup.setLngLat(e.lngLat)
         .setHTML('hello')
         .addTo(map);
 });
