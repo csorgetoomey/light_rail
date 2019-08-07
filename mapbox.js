@@ -13,17 +13,29 @@ map.addControl(new mapboxgl.NavigationControl());
 
 //load geojsons
 map.on('load', function() {
-    map.addSource('2010', {
+    map.addSource('2017polygon', {
         'type': 'geojson',
-        'data': 'GEOJSONS/tac_2010_data.geojson'
+        'data': 'GEOJSONS/tac_bg_2017.geojson'
     });
     map.addLayer({
-        "id":"2010Data",
+        "id":"Polygon2017",
         "type":"fill",
-        "source":"2010",
+        "source":"2017polygon",
         "paint": {
-            'fill-color': 'rgba(200, 100, 240, 0.4)',
-            'fill-outline-color': 'rgba(200, 100, 240, 1)'
+            'fill-color': 'blue',
+            'fill-outline-color': 'black'
+        }
+    });
+    map.addSource('2017points', {
+        'type': 'geojson',
+        'data': 'GEOJSONS/tac_bg_2017.geojson'
+    });
+    map.addLayer({
+        "id":"Points2017",
+        "type":"circle",
+        "source":"2017points",
+        "paint": {
+            'circle-color': 'red'
         }
     });
 });
