@@ -22,7 +22,10 @@ map.on('load', function() {
         "type":"fill",
         "source":"2017polygon",
         "paint": {
-            'fill-color': 'blue',
+            'fill-color': [
+                "curve",
+              ["step"], ["number", ["get", "comp_z_score"], 1], "#FFEDA0", -0.774240, "#FED976", -0.234561, "#FEB24C", 0.233785, "#FD8D3C", 0.867497, "#FC4E2A", 2.292498, "#000000"
+            ],
             'fill-outline-color': 'black'
         }
     });
@@ -40,13 +43,14 @@ map.on('load', function() {
     });
 });
 
-map.on('click', '2010Data', function (e) {
+map.on('click', 'Polygon2017', function (e) {
     new mapboxgl.Popup()
         .setLngLat(e.lngLat)
         .setHTML("hello")
         .addTo(map);
 });
 
+//from https://gis.stackexchange.com/questions/198896/mapbox-gljs-group-layers
 //whatever layers you want to toggle go in to this function
 toggleLayer(['Points2017', 'Polygon2017'], '2017 Rail');
 
@@ -69,14 +73,7 @@ function toggleLayer(ids, name) {
                 map.setLayoutProperty(ids[layers], 'visibility', 'visible');
             }
          }
-
     };
-
     var layers = document.getElementById('menu');
     layers.appendChild(link);
 }
-
-
-// map.on('click', function (e) {
-//     console.log(e);
-// });
