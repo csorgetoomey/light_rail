@@ -179,9 +179,9 @@ function toggleLayer(ids, name) {
             if (visibility === 'visible') {
                 map.setLayoutProperty(ids[layers], 'visibility', 'none');
                 this.className = '';
-            } else {
-                this.className = 'active';
+            } if (visibility === 'none') {
                 map.setLayoutProperty(ids[layers], 'visibility', 'visible');
+                this.className = '';
             }
          }
     };
