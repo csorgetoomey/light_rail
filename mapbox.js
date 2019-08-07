@@ -28,7 +28,7 @@ map.on('load', function() {
     });
     map.addSource('2017points', {
         'type': 'geojson',
-        'data': 'GEOJSONS/tac_bg_2017.geojson'
+        'data': 'GEOJSONS/tac_stations2017.geojson'
     });
     map.addLayer({
         "id":"Points2017",
