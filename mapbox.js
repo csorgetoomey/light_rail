@@ -64,8 +64,8 @@ map.on('load', function() {
                 -0.234561, '#fdae61',
                 0.233785, '#ffffbf',
                 0.867497, '#a6d96a',
-                2.292498, '#1a9641',
-                ]
+                2.292498, '#1a9641'
+            ]
         }
     });
     map.addSource('2022points', {
@@ -110,6 +110,40 @@ map.on('load', function() {
         "id":"Points2030",
         "type":"circle",
         "source":"2030points",
+        "paint": {
+            'circle-color': 'black'
+        }
+    });
+
+    map.addSource('2039polygon', {
+        'type': 'geojson',
+        'data': 'GEOJSONS/tac_bg_2039.geojson'
+    });
+    map.addLayer({
+        "id":"Polygon2039",
+        "type":"fill",
+        "source":"2039polygon",
+        "paint": {
+            'fill-color': [
+                'interpolate',
+                ['linear'],
+                ['get', 'comp_z_score'],
+                -0.774240, '#d7191c',
+                -0.234561, '#fdae61',
+                0.233785, '#ffffbf',
+                0.867497, '#a6d96a',
+                2.292498, '#1a9641'
+            ]
+        }
+    });
+    map.addSource('2039points', {
+        'type': 'geojson',
+        'data': 'GEOJSONS/tac_stations_2039.geojson'
+    });
+    map.addLayer({
+        "id":"Points2039",
+        "type":"circle",
+        "source":"2039points",
         "paint": {
             'circle-color': 'black'
         }
