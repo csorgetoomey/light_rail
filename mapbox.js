@@ -23,10 +23,15 @@ map.on('load', function() {
         "source":"2017polygon",
         "paint": {
             'fill-color': [
-                "curve",
-              ["step"], ["number", ["get", "comp_z_score"], 1], "#FFEDA0", -0.774240, "#FED976", -0.234561, "#FEB24C", 0.233785, "#FD8D3C", 0.867497, "#FC4E2A", 2.292498, "#000000"
-            ],
-            'fill-outline-color': 'black'
+                'interpolate',
+                ['linear'],
+                ['get', 'comp_z_score'],
+                -0.774240, '#F2F12D',
+                -0.234561, '#EED322',
+                0.233785, '#E6B71E',
+                0.867497, '#DA9C20',
+                2.292498, '#CA8323',
+                ]
         }
     });
     map.addSource('2017points', {
