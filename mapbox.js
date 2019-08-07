@@ -47,30 +47,29 @@ map.on('click', '2010Data', function (e) {
         .addTo(map);
 });
 
-var toggleableLayerIds = [ '2010 Data', ];
+//whatever layers you want to toggle go in to this function
+toggleLayer(['Points2017', 'Polygon2017'], '2017 Rail');
 
-for (var i = 0; i < toggleableLayerIds.length; i++) {
-    var id = toggleableLayerIds[i];
-
+function toggleLayer(ids, name) {
     var link = document.createElement('a');
     link.href = '#';
     link.className = 'active';
-    link.textContent = id;
+    link.textContent = name;
 
     link.onclick = function (e) {
-        var clickedLayer = this.textContent;
         e.preventDefault();
         e.stopPropagation();
+        for (layers in ids){
+            var visibility = map.getLayoutProperty(ids[layers], 'visibility');
+            if (visibility === 'visible') {
+                map.setLayoutProperty(ids[layers], 'visibility', 'none');
+                this.className = '';
+            } else {
+                this.className = 'active';
+                map.setLayoutProperty(ids[layers], 'visibility', 'visible');
+            }
+         }
 
-        var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
-
-        if (visibility === 'visible') {
-            map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-            this.className = '';
-        } else {
-            this.className = 'active';
-            map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-        }
     };
 
     var layers = document.getElementById('menu');
