@@ -11,6 +11,10 @@ var map = new mapboxgl.Map({
 
 map.addControl(new mapboxgl.NavigationControl());
 
+var popup = new mapboxgl.Popup({
+    closeButton: false
+});
+
 //load geojsons
 map.on('load', function() {
     map.addSource('2017polygon', {
