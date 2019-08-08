@@ -56,7 +56,7 @@ map.on('load', function() {
         "type":"fill",
         "source":"2022polygon",
         'layout': {
-            'visibility': 'visible'
+            'visibility': 'none'
         },
         "paint": {
             'fill-color': [
@@ -80,7 +80,7 @@ map.on('load', function() {
         "type":"circle",
         "source":"2022points",
         'layout': {
-            'visibility': 'visible'
+            'visibility': 'none'
         },
         "paint": {
             'circle-color': 'black'
@@ -96,7 +96,7 @@ map.on('load', function() {
         "type":"fill",
         "source":"2030polygon",
         'layout': {
-            'visibility': 'visible'
+            'visibility': 'none'
         },
         "paint": {
             'fill-color': [
@@ -120,7 +120,7 @@ map.on('load', function() {
         "type":"circle",
         "source":"2030points",
         'layout': {
-            'visibility': 'visible'
+            'visibility': 'none'
         },
         "paint": {
             'circle-color': 'black'
@@ -136,7 +136,7 @@ map.on('load', function() {
         "type":"fill",
         "source":"2039polygon",
         'layout': {
-            'visibility': 'visible'
+            'visibility': 'none'
         },
         "paint": {
             'fill-color': [
@@ -160,7 +160,7 @@ map.on('load', function() {
         "type":"circle",
         "source":"2039points",
         'layout': {
-            'visibility': 'visible'
+            'visibility': 'none'
         },
         "paint": {
             'circle-color': 'black'
