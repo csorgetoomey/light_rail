@@ -178,15 +178,15 @@ map.on('click', 'Polygon2017', function (e) {
 
 //from https://gis.stackexchange.com/questions/198896/mapbox-gljs-group-layers
 //whatever layers you want to toggle go in to this function
-toggleLayer(['Points2017', 'Polygon2017'], '2017 Rail');
-toggleLayer(['Points2022', 'Polygon2022'], '2022 Rail');
-toggleLayer(['Points2030', 'Polygon2030'], '2030 Rail');
-toggleLayer(['Points2039', 'Polygon2039'], '2039 Rail');
+toggleLayer(['Points2017', 'Polygon2017'], '2017 Rail', 'active');
+toggleLayer(['Points2022', 'Polygon2022'], '2022 Rail', '');
+toggleLayer(['Points2030', 'Polygon2030'], '2030 Rail', '');
+toggleLayer(['Points2039', 'Polygon2039'], '2039 Rail', '');
 
-function toggleLayer(ids, name) {
+function toggleLayer(ids, name, initActive) {
     var link = document.createElement('a');
     link.href = '#';
-    link.className = 'active';
+    link.className = initActive;
     link.textContent = name;
 
     link.onclick = function (e) {
