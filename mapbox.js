@@ -123,7 +123,9 @@ map.on('load', function() {
         "id":"Polygon2039",
         "type":"fill",
         "source":"2039polygon",
-        "visible":"none",
+        'layout': {
+            'visibility': 'visible'
+        },
         "paint": {
             'fill-color': [
                 'interpolate',
