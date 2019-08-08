@@ -169,15 +169,25 @@ map.on('load', function() {
 
 });
 
-map.on('click', 'Polygon2017', function (e) {
-    new mapboxgl.Popup()
-        .setLngLat(e.lngLat)
-        .setHTML("hello")
+map.on('mousemove', 'Points2017', function(e) {
+    // Change the cursor style as a UI indicator.
+    map.getCanvas().style.cursor = 'pointer';
+
+    // Single out the first found feature.
+    var feature = e.features[0];
+
+    // Display a popup with the name of the county
+    popup.setLngLat(e.lngLat)
+        .setText(feature.properties.NAME)
         .addTo(map);
 });
 
+map.on('mouseleave', 'Points2017', function() {
+    map.getCanvas().style.cursor = '';
+    popup.remove();
+});
+
 //from https://gis.stackexchange.com/questions/198896/mapbox-gljs-group-layers
-//whatever layers you want to toggle go in to this function
 toggleLayer(['Points2017', 'Polygon2017'], '2017 Rail', 'active');
 toggleLayer(['Points2022', 'Polygon2022'], '2022 Rail', '');
 toggleLayer(['Points2030', 'Polygon2030'], '2030 Rail', '');
@@ -192,7 +202,7 @@ function toggleLayer(ids, name, initActive) {
     link.onclick = function (e) {
         e.preventDefault();
         e.stopPropagation();
-        for (layers in ids){
+        for (layers in ids) {
             var visibility = map.getLayoutProperty(ids[layers], 'visibility');
             if (visibility === 'visible') {
                 map.setLayoutProperty(ids[layers], 'visibility', 'none');
