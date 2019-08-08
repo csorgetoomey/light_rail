@@ -147,7 +147,9 @@ map.on('load', function() {
         "id":"Points2039",
         "type":"circle",
         "source":"2039points",
-        "visible":"none",
+        'layout': {
+            'visibility': 'visible'
+        },
         "paint": {
             'circle-color': 'black'
         }
