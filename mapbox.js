@@ -123,6 +123,7 @@ map.on('load', function() {
         "id":"Polygon2039",
         "type":"fill",
         "source":"2039polygon",
+        "visible":"none",
         "paint": {
             'fill-color': [
                 'interpolate',
@@ -144,6 +145,7 @@ map.on('load', function() {
         "id":"Points2039",
         "type":"circle",
         "source":"2039points",
+        "visible":"none",
         "paint": {
             'circle-color': 'black'
         }
