@@ -167,26 +167,26 @@ toggleLayer(['Points2022', 'Polygon2022'], '2022 Rail');
 toggleLayer(['Points2030', 'Polygon2030'], '2030 Rail');
 toggleLayer(['Points2039', 'Polygon2039'], '2039 Rail');
 
-function toggleLayer(ids, name) {
-    var link = document.createElement('a');
-    link.href = '#';
-    link.className = 'active';
-    link.textContent = name;
-
-    link.onclick = function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        for (layers in ids){
-            var visibility = map.getLayoutProperty(ids[layers], 'visibility');
-            if (visibility === 'visible') {
-                map.setLayoutProperty(ids[layers], 'visibility', 'none');
-                this.className = '';
-            } else {
-                this.className = 'active';
-                map.setLayoutProperty(ids[layers], 'visibility', 'visible');
-            }
-         }
-    };
-    var layers = document.getElementById('menu');
-    layers.appendChild(link);
-}
+// function toggleLayer(ids, name) {
+//     var link = document.createElement('a');
+//     link.href = '#';
+//     link.className = 'active';
+//     link.textContent = name;
+//
+//     link.onclick = function (e) {
+//         e.preventDefault();
+//         e.stopPropagation();
+//         for (layers in ids){
+//             var visibility = map.getLayoutProperty(ids[layers], 'visibility');
+//             if (visibility === 'visible') {
+//                 map.setLayoutProperty(ids[layers], 'visibility', 'none');
+//                 this.className = '';
+//             } else {
+//                 this.className = 'active';
+//                 map.setLayoutProperty(ids[layers], 'visibility', 'visible');
+//             }
+//          }
+//     };
+//     var layers = document.getElementById('menu');
+//     layers.appendChild(link);
+// }
