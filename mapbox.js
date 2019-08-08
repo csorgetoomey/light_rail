@@ -173,7 +173,10 @@ map.on('load', function() {
 
 });
 
-map.on('mousemove', 'Points2017', function(e) {
+var features = map.queryRenderedFeatures({ layers: ['Points2017'] });
+
+//from https://stackoverflow.com/questions/45841086/show-popup-on-hover-mapbox
+map.on('mousemove', features, function(e) {
     // Change the cursor style as a UI indicator.
     map.getCanvas().style.cursor = 'pointer';
 
