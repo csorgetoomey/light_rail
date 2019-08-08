@@ -177,10 +177,8 @@ map.on('load', function() {
 map.on('mousemove', 'Points2017', function(e) {
     // Change the cursor style as a UI indicator.
     map.getCanvas().style.cursor = 'pointer';
-
     // Single out the first found feature.
     var feature = e.features[0];
-
     // Display a popup with the name of the county
     popup.setLngLat(e.lngLat)
         .setText(feature.properties.NAME)
