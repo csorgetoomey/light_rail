@@ -173,71 +173,27 @@ map.on('load', function() {
 
 });
 
-//from https://stackoverflow.com/questions/45841086/show-popup-on-hover-mapbox
-map.on('mousemove', 'Points2017', function(e) {
-    // Change the cursor style as a UI indicator.
-    map.getCanvas().style.cursor = 'pointer';
-    // Single out the first found feature.
-    var feature = e.features[0];
-    // Display a popup with the name of the county
-    popup.setLngLat(e.lngLat)
-        .setText(feature.properties.NAME)
-        .addTo(map);
-});
+hoverPopups("Points2017")
 
-map.on('mousemove', 'Points2022', function(e) {
-    // Change the cursor style as a UI indicator.
-    map.getCanvas().style.cursor = 'pointer';
-    // Single out the first found feature.
-    var feature = e.features[0];
-    // Display a popup with the name of the county
-    popup.setLngLat(e.lngLat)
-        .setText(feature.properties.NAME)
-        .addTo(map);
-});
-map.on('mousemove', 'Points2030', function(e) {
-    // Change the cursor style as a UI indicator.
-    map.getCanvas().style.cursor = 'pointer';
-    // Single out the first found feature.
-    var feature = e.features[0];
-    // Display a popup with the name of the county
-    popup.setLngLat(e.lngLat)
-        .setText(feature.properties.NAME)
-        .addTo(map);
-});
+function hoverPopups(id) {
+    //from https://stackoverflow.com/questions/45841086/show-popup-on-hover-mapbox
+    map.on('mousemove', id, function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+        // Single out the first found feature.
+        var feature = e.features[0];
+        // Display a popup with the name of the county
+        popup.setLngLat(e.lngLat)
+            .setText(feature.properties.NAME)
+            .addTo(map);
+    });
 
-map.on('mousemove', 'Points2039', function(e) {
-    // Change the cursor style as a UI indicator.
-    map.getCanvas().style.cursor = 'pointer';
-    // Single out the first found feature.
-    var feature = e.features[0];
-    // Display a popup with the name of the county
-    popup.setLngLat(e.lngLat)
-        .setText(feature.properties.NAME)
-        .addTo(map);
-});
+    map.on('mouseleave', id, function() {
+        map.getCanvas().style.cursor = '';
+        popup.remove();
+    });
 
-
-
-map.on('mouseleave', 'Points2017', function() {
-    map.getCanvas().style.cursor = '';
-    popup.remove();
-});
-
-map.on('mouseleave', 'Points2022', function() {
-    map.getCanvas().style.cursor = '';
-    popup.remove();
-});
-
-map.on('mouseleave', 'Points2030', function() {
-    map.getCanvas().style.cursor = '';
-    popup.remove();
-});
-
-map.on('mouseleave', 'Points2039', function() {
-    map.getCanvas().style.cursor = '';
-    popup.remove();
-});
+}
 
 //from https://gis.stackexchange.com/questions/198896/mapbox-gljs-group-layers
 toggleLayer(['Points2017', 'Polygon2017'], '2017 Rail', 'active');
