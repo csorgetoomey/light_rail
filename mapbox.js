@@ -174,6 +174,9 @@ map.on('load', function() {
 });
 
 hoverPopups("Points2017")
+hoverPopups("Points2022")
+hoverPopups("Points2030")
+hoverPopups("Points2039")
 
 function hoverPopups(id) {
     //from https://stackoverflow.com/questions/45841086/show-popup-on-hover-mapbox
