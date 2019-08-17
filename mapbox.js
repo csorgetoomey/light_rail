@@ -15,11 +15,11 @@ var popup = new mapboxgl.Popup({
     closeButton: false
 });
 
-var veryHigh = "D7191C"
-var high = "FDAE61"
-var moderate = "FFFFBF"
-var low = "ABDDA4"
-var veryLow = "2B83BA"
+var veryHigh = "#D7191C"
+var high = "#FDAE61"
+var moderate = "#FFFFBF"
+var low = "#ABDDA4"
+var veryLow = "#2B83BA"
 
 //load geojsons
 map.on('load', function() {
