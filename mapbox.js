@@ -15,6 +15,12 @@ var popup = new mapboxgl.Popup({
     closeButton: false
 });
 
+var veryHigh = "D7191C"
+var high = "FDAE61"
+var moderate = "FFFFBF"
+var low = "ABDDA4"
+var veryLow = "2B83BA"
+
 //load geojsons
 map.on('load', function() {
     map.addSource('2017polygon', {
@@ -30,11 +36,11 @@ map.on('load', function() {
                 'interpolate',
                 ['linear'],
                 ['get', 'comp_z_score'],
-                -0.478213, '#d7191c',
-                -0.167167, '#fdae61',
-                0.066339, '#ffffbf',
-                0.473942, '#a6d96a',
-                2.292498, '#1a9641',
+                -0.478213, veryHigh,
+                -0.167167, high,
+                0.066339, moderate,
+                0.473942, low,
+                2.292498, veryLow,
                 ]
         }
     });
