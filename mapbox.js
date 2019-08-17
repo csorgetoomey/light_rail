@@ -5,8 +5,8 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/csorge/cjvhhz99w0jnm1cq3per2445t',
     center: [-122.433881, 47.241519],
-    zoom: 14,
-    minZoom: 10,
+    zoom: 11,
+    minZoom: 9,
 });
 
 map.addControl(new mapboxgl.NavigationControl());
