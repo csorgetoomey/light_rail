@@ -18,8 +18,8 @@ var popup = new mapboxgl.Popup({
 var veryHigh = "#D7191C"
 var high = "#FDAE61"
 var moderate = "#FFFFBF"
-var low = "#ABDDA4"
-var veryLow = "#2B83BA"
+var low = "#a6d96a"
+var veryLow = "#1a9641"
 
 //load geojsons
 map.on('load', function() {
@@ -73,11 +73,11 @@ map.on('load', function() {
                 'interpolate',
                 ['linear'],
                 ['get', 'comp_z_score'],
-                -0.543172, '#d7191c',
-                -0.179957, '#fdae61',
-                0.064798, '#ffffbf',
-                0.416939, '#a6d96a',
-                2.210599, '#1a9641'
+                -0.543172, veryHigh,
+                -0.179957, high,
+                0.064798, moderate,
+                0.416939, low,
+                2.210599, veryLow,
             ]
         }
     });
